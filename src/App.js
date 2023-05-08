@@ -39,7 +39,7 @@ const App = () => {
                 <Sidebar />
             </div>
           )}
-            {/*Main div for Navbar Component*/}
+            {/*Main div for all Component*/}
             <div className={
               `dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-2'}`
             }>
@@ -47,7 +47,7 @@ const App = () => {
                 <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
                   <Navbar />
                 </div>
-            </div>
+            
 
               {/*Main Div for Routing*/}
             <div>
@@ -79,12 +79,12 @@ const App = () => {
 
               </Routes>
             </div>
-          
+            </div>
         </div>
       </BrowserRouter>
     </div>
 
-  )
-}
+  );
+};
 
 export default App
