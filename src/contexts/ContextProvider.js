@@ -18,6 +18,8 @@ const [currentColor, setCurrentColor] = useState('#03C9D7');
 const [currentMode, setCurrentMode] = useState('Light');
 const [themeSettings, setThemeSettings] = useState(false);
 const [activeCart, setActiveCart] = useState(true);
+const [userProfile, setUserProfile] = useState(true)
+const [userChat, setUserChat] = useState(true)
 
 const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -54,7 +56,11 @@ const handleClick = (clicked) => {
         setMode,
         setColor,
         activeCart,
-        setActiveCart
+        setActiveCart,
+        userProfile,
+        setUserProfile,
+        userChat,
+        setUserChat
     }}
     >
         {children}

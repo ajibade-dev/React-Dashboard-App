@@ -7,17 +7,23 @@ import { useStateContext } from '../contexts/ContextProvider';
 import avatar from '../data/avatar.jpg';
 
 const UserProfile = () => {
-  const { currentColor, setActiveMenu } = useStateContext();
 
+  const {currentColor, userProfile, setUserProfile} = useStateContext();
 
+  const handleClick = () => {
+    setUserProfile(false)
+    console.log("now")
+  }
 
   return (
+    <div className={!userProfile ? 'hidden' : 'block'}>
     <div className="nav-item absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">
       <div className="flex justify-between items-center">
         <p className="font-semibold text-lg dark:text-gray-200">User Profile</p>
-        <TooltipComponent content='Menu' position='BottomCenter'>
+
+        <TooltipComponent content='Menu'position='BottomCenter'>
               {/* button to close the menu */}
-              <button type='button' onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)} className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden'>
+              <button type='button' onClick={ () => {handleClick()}} className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block'>
                 <MdOutlineCancel />
               </button>
             </TooltipComponent>
@@ -62,7 +68,7 @@ const UserProfile = () => {
         />
       </div>
     </div>
-
+    </div>
   );
 };
 

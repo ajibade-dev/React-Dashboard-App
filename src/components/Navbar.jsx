@@ -27,7 +27,7 @@ className='relative text-xl rounded-full p-3 hover:bg-light-gray'>
 )
 
 const Navbar = () => {
-  const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize, currentColor } = useStateContext();
+  const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize, currentColor, setActiveCart, activeCart, userProfile, setUserProfile, userChat, setUserChat  } = useStateContext();
 
   useEffect(() => {
       const handleResize = () => setScreenSize(window.innerWidth);
@@ -37,7 +37,7 @@ const Navbar = () => {
       handleResize();
 
       return () => window.removeEventListener('resize', handleResize)
-  }, []);
+  }, [setActiveMenu, setScreenSize]);
 
   useEffect(() => {
       if(screenSize <= 900){
@@ -45,7 +45,7 @@ const Navbar = () => {
       }else{
         setActiveMenu(true)
       }
-  }, [screenSize])
+  }, [screenSize, setActiveMenu])
 
   return (
     <div className='flex justify-between p-2 md:mx-6 relative'>
@@ -55,6 +55,7 @@ const Navbar = () => {
         <NavButton 
           title="Cart" 
           customFunc={() => handleClick('cart')}
+          //onClick={() => setActiveCart(!activeCart)}
           color={currentColor} 
           icon={<FiShoppingCart />} 
           />
@@ -78,6 +79,7 @@ const Navbar = () => {
         <TooltipComponent 
         content="Profile"
         position='BottomCenter'
+       onClick={() => setUserProfile(!userProfile)}
         >
           <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
           onClick={() => handleClick('userProfile')}
