@@ -9,13 +9,10 @@ import { Button } from '.';
 const Cart = () => {
   const { currentColor, activeCart, setActiveCart } = useStateContext();
 
-  const handleClose = () => {
-    setActiveCart(false)
-    console.log("now")
-  }
+  
 
   return (
-    <div className={!activeCart ? 'hidden' : 'block'} >
+    <div className={activeCart ? 'hidden' : 'flex'} >
     <div className="bg-half-transparent w-full fixed nav-item top-0 right-0 ">
       <div className="float-right h-screen  duration-1000 ease-in-out dark:text-gray-200 transition-all dark:bg-[#484B52] bg-white md:w-400 p-8">
         <div className="flex justify-between items-center">
@@ -23,7 +20,7 @@ const Cart = () => {
 
           <TooltipComponent content='Menu'position='BottomCenter'>
               {/* button to close the menu */}
-              <button type='button' onClick={ () => {handleClose()}} className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block'>
+              <button type='button' onClick={ () => setActiveCart(!activeCart)} className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block'>
                 <MdOutlineCancel />
               </button>
             </TooltipComponent>

@@ -10,20 +10,17 @@ const UserProfile = () => {
 
   const {currentColor, userProfile, setUserProfile} = useStateContext();
 
-  const handleClick = () => {
-    setUserProfile(false)
-    console.log("now")
-  }
+
 
   return (
-    <div className={!userProfile ? 'hidden' : 'block'}>
+    <div className={userProfile ? 'hidden' : 'flex'}>
     <div className="nav-item absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">
       <div className="flex justify-between items-center">
         <p className="font-semibold text-lg dark:text-gray-200">User Profile</p>
 
         <TooltipComponent content='Menu'position='BottomCenter'>
               {/* button to close the menu */}
-              <button type='button' onClick={ () => {handleClick()}} className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block'>
+              <button type='button' onClick={ () => setUserProfile(!userProfile)} className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block'>
                 <MdOutlineCancel />
               </button>
             </TooltipComponent>

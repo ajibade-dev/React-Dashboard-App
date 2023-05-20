@@ -20,6 +20,7 @@ const [themeSettings, setThemeSettings] = useState(false);
 const [activeCart, setActiveCart] = useState(true);
 const [userProfile, setUserProfile] = useState(true)
 const [userChat, setUserChat] = useState(true)
+const [notification, setNotification] = useState(true)
 
 const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -60,7 +61,9 @@ const handleClick = (clicked) => {
         userProfile,
         setUserProfile,
         userChat,
-        setUserChat
+        setUserChat,
+        notification,
+        setNotification
     }}
     >
         {children}

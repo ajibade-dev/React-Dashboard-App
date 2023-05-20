@@ -9,14 +9,11 @@ import { useStateContext } from '../contexts/ContextProvider';
 const Chat = () => {
   const { currentColor, userChat, setUserChat } = useStateContext();
 
-  const handleClick = () => {
-    setUserChat(false)
-    console.log("now")
-  }
+ 
 
 
   return (
-    <div className={!userChat ? 'hidden' : 'block'}>
+    <div className={userChat ? 'hidden' : 'flex' }>
          <div className="nav-item absolute right-5 md:right-52 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">
       <div className="flex justify-between items-center">
         <div className="flex gap-3">
@@ -28,7 +25,7 @@ const Chat = () => {
         
         <TooltipComponent content='Menu'position='BottomCenter'>
               {/* button to close the menu */}
-              <button type='button' onClick={ () => {handleClick()}} className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block'>
+              <button type='button' onClick={ () => setUserChat(!userChat)} className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block'>
                 <MdOutlineCancel />
               </button>
             </TooltipComponent>
